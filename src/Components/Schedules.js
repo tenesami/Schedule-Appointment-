@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Schedule = ({tasks}) => {
+const Schedules = ({tasks}) => {
     return (
         <>
         {tasks.map((task) => (
@@ -11,4 +11,4 @@ const Schedule = ({tasks}) => {
     )
 }
 
-export default Schedule;
+export default Schedules;

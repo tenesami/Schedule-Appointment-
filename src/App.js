@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import Topic from './Components/Topic'
-import Schedule from './Components/Schedule'
+import Schedules from './Components/Schedules'
 
 const App = () => {
 const [tasks, setTasks] = useState(
@@ -28,7 +28,7 @@ const [tasks, setTasks] = useState(
 return (
 <div className='container'>
   <Topic/>
-  <Schedule tasks={tasks}/>
+  <Schedules tasks={tasks}/>
 </div>
 ); 
 }
