@@ -1,10 +1,10 @@
-import React from 'react'
+import Schedule from './Schedule'
 
 const Schedules = ({tasks}) => {
     return (
         <>
         {tasks.map((task) => (
-            <h4 key={task.id}> {task.text}</h4>
+            <Schedule key={task.id} task={task} />
         )
         )}
         </>
