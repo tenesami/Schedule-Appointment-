@@ -26,7 +26,7 @@ const [tasks, setTasks] = useState(
   ]
 )
 
-//Delete schedule 
+//Delete schedule fuction 
 const deleteSchedule = (id) => {
   setTasks(tasks.filter(task => task.id !== id))
 }
@@ -34,7 +34,13 @@ const deleteSchedule = (id) => {
 return (
 <div className='container'>
   <Topic/>
-  <Schedules tasks={tasks} onDelete={deleteSchedule}/>
+  {tasks.length > 0 ? 
+    <Schedules tasks={tasks} 
+    onDelete={deleteSchedule}/>
+   : 
+    'No Schdule to read'  
+  }
+  
 </div>
 ); 
 }
