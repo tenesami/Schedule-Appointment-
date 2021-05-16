@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import Button from './Button'
 
 
-const Topic = ({ title}) => {
+const Topic = ({ title, onAdd, showAdd}) => {
   const onClick = () => {
     console.log('click')
   }
@@ -10,7 +10,10 @@ const Topic = ({ title}) => {
     <header className='header'>
       <h1>{title}</h1>
         {/* <button className='btn'>Add</button> */}
-        <Button color='blue' text='Add' onClick={onClick}/>
+        <Button color={showAdd ? 'Red' : 'Green'} 
+                text={showAdd ? 'Close' : 'Add'} 
+                onClick={onAdd}
+                />
     </header>
   )
 }
