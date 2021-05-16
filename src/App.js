@@ -1,8 +1,10 @@
 import {useState} from 'react'
 import Topic from './Components/Topic'
 import Schedules from './Components/Schedules'
+import AddSchedule from './Components/AddSchedule'
 
 const App = () => {
+  const [showAddSchedule, setShowAddSchedule] = useState(false)
 const [tasks, setTasks] = useState(
   [
     {
@@ -26,17 +28,41 @@ const [tasks, setTasks] = useState(
   ]
 )
 
+//Add schedule 
+const addSchedule = (task) => {
+  console.log(task)
+}
+
 //Delete schedule fuction 
 const deleteSchedule = (id) => {
-  setTasks(tasks.filter(task => task.id !== id))
+  setTasks(
+    tasks.filter(task => 
+      task.id !== id))
 }
+
+//onToggle function
+const toggleReminder = (id) =>{
+  //if task id is equal to id change task to negation 
+  setTasks(
+    tasks.map(task => 
+      task.id === id ? { 
+        ...task, reminder: 
+        !task.reminder } : task
+    )  
+  )
+}
+
 
 return (
 <div className='container'>
-  <Topic/>
+  <Topic onAdd={()=> setShowAddSchedule(!showAddSchedule)}
+  showAdd={showAddSchedule}
+  />
+  {showAddSchedule && <AddSchedule onAdd={addSchedule}/>}
   {tasks.length > 0 ? 
     <Schedules tasks={tasks} 
-    onDelete={deleteSchedule}/>
+    onDelete={deleteSchedule}
+    onToggle={toggleReminder}/>
    : 
     'No Schdule to read'  
   }
